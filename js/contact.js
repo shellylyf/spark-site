@@ -2,13 +2,22 @@
    Spark — contact form
    ═══════════════════════════════════════════════════════ */
 
-/* Where submissions go.
-   ─ Leave empty and the form composes a mail-client draft,
-     which works with no backend at all.
-   ─ Set it to a form service (Formspree, Basin, a Worker,
-     …) and the form POSTs JSON there instead.            */
+/* ── Where submissions go ─────────────────────────────
+   Fill in ONE of these to switch the form on.
+
+   FORM_ENDPOINT  a form service (Formspree, Basin, a Worker…).
+                  Submissions are POSTed there as JSON. Best option:
+                  nothing is exposed and you get a real inbox.
+
+   CONTACT_EMAIL  a plain address. Submitting opens the visitor's
+                  mail client with a pre-filled draft, which they
+                  then send themselves. No backend needed, but the
+                  address ends up publicly visible in this file.
+
+   With both empty the form still validates, then tells the visitor
+   it isn't connected yet rather than silently doing nothing.      */
 const FORM_ENDPOINT = '';
-const FALLBACK_EMAIL = 'shellylyf@gmail.com';
+const CONTACT_EMAIL = '';
 
 const form    = document.getElementById('cform');
 const errorEl = document.getElementById('cformError');
@@ -44,7 +53,7 @@ function showProblem([input, text]) {
   input.focus();
 }
 
-/* No endpoint configured → hand off to the visitor's mail client */
+/* No endpoint, but an address → hand off to the mail client */
 function mailtoFallback(data) {
   const body = [
     `Name:  ${data.name}`,
@@ -55,7 +64,7 @@ function mailtoFallback(data) {
   ].filter(Boolean).join('\n');
 
   window.location.href =
-    `mailto:${FALLBACK_EMAIL}` +
+    `mailto:${CONTACT_EMAIL}` +
     `?subject=${encodeURIComponent('Spark enquiry from ' + data.name)}` +
     `&body=${encodeURIComponent(body)}`;
 }
@@ -74,6 +83,14 @@ form.addEventListener('submit', async (e) => {
     phone:   form.phone.value.trim(),
     message: form.message.value.trim(),
   };
+
+  /* Nothing configured yet — say so plainly instead of pretending */
+  if (!FORM_ENDPOINT && !CONTACT_EMAIL) {
+    errorEl.textContent =
+      'This form isn\u2019t connected yet. Please get in touch another way for now.';
+    errorEl.hidden = false;
+    return;
+  }
 
   if (!FORM_ENDPOINT) {
     mailtoFallback(data);
@@ -97,7 +114,7 @@ form.addEventListener('submit', async (e) => {
     okEl.textContent = 'Thanks — your message is on its way.';
     okEl.hidden = false;
   } catch (err) {
-    errorEl.textContent = 'Something went wrong sending that. Please try again, or email ' + FALLBACK_EMAIL + '.';
+    errorEl.textContent = 'Something went wrong sending that. Please try again in a moment.';
     errorEl.hidden = false;
   } finally {
     button.disabled = false;
