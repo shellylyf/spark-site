@@ -1,0 +1,7 @@
+# Original camera/design files — 449 MB, and Spark_Demo.mp4 alone is
+# 341 MB which GitHub rejects outright (100 MB hard limit).
+# The web-optimised versions in assets/ are what actually ship.
+assets/_src/
+
+# macOS
+.DS_Store

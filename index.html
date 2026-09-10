@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spark — A hyperlocal story collecting installation</title>
+<meta name="description" content="Spark turns personal stories into a shared emotional weather forecast.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="logo" href="#top" aria-label="Spark home">
+      <img src="assets/logo.svg" alt="Spark" width="913" height="219">
+    </a>
+    <nav class="nav__links">
+      <a href="#about">About</a>
+      <a href="#map">Map</a>
+      <a class="btn btn--solid" href="contact.html">Let's talk</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ══ HERO ══════════════════════════════════════════
+       Geometry mirrors the original exactly:
+       100vh · padding 140/24/80 · content bottom-anchored
+       h1 120/112 · ls -6px · wrapper max-width 700px      -->
+  <section class="hero">
+    <!-- ASSET SLOT: hero video + poster -->
+    <video class="hero__media" autoplay muted loop playsinline
+           poster="https://framerusercontent.com/images/N6EC83Aw0u6Guzz19ta9KDjndY.png?width=1920">
+      <source src="https://framerusercontent.com/assets/PdeyRzwEpdX1VOC1WxVpCm4r6E.mp4" type="video/mp4">
+    </video>
+    <div class="hero__scrim"></div>
+
+    <div class="hero__inner">
+      <div class="hero__row">
+        <div class="hero__titleWrap">
+          <h1 class="hero__title">A hyperlocal story collecting installation</h1>
+        </div>
+        <a class="hero__scroll" href="#about">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Scroll to explore</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SHEET ═════════════════════════════════════════
+       Everything below the hero lives on this sheet. It is
+       opaque and sits above the pinned hero, so scrolling
+       slides it up over the video with rounded top corners. -->
+  <div class="sheet">
+
+  <!-- ══ STATEMENT ══ -->
+  <section class="statement" id="about">
+    <div class="wrap statement__inner">
+      <p class="pill reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 21s6.5-5.4 6.5-10.5a6.5 6.5 0 1 0-13 0C5.5 15.6 12 21 12 21Z"/>
+          <circle cx="12" cy="10.3" r="2.4"/>
+        </svg>
+        Emotional weather station
+      </p>
+
+      <h2 class="statement__text reveal">
+        Spark turns personal stories into a shared emotional weather forecast,
+        capturing the shifting mood of a place through the voices of the people
+        who pass through it.
+      </h2>
+
+      <ul class="facets reveal">
+        <li class="facet">
+          <span class="facet__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="8.5"/>
+              <path d="M3.5 12h17"/>
+              <path d="M12 3.5c2.2 2.3 3.4 5.3 3.4 8.5S14.2 18.2 12 20.5c-2.2-2.3-3.4-5.3-3.4-8.5S9.8 5.8 12 3.5Z"/>
+            </svg>
+          </span>
+          Voices of Place
+        </li>
+        <li class="facet">
+          <span class="facet__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3.5c3.4 1.6 5.6 3.4 5.6 6.4A5.6 5.6 0 0 1 12 15.5a5.6 5.6 0 0 1-5.6-5.6c0-3 2.2-4.8 5.6-6.4Z"/>
+              <path d="M12 9.5v11"/>
+            </svg>
+          </span>
+          Emotional Weather
+        </li>
+        <li class="facet">
+          <span class="facet__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3.5" y="5.5" width="17" height="13" rx="2"/>
+              <path d="m3.9 6.7 7.2 5.2a1.6 1.6 0 0 0 1.8 0l7.2-5.2"/>
+            </svg>
+          </span>
+          Living Place Archive
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══ MEDIA PANELS ══ -->
+  <section class="panels">
+
+    <figure class="panel">
+      <div class="panel__frame collage">
+        <img src="assets/collage-1.jpg" alt="Spark installation beside the water" loading="lazy">
+        <img src="assets/collage-2.jpg" alt="Spark installation next to a park bench" loading="lazy">
+        <img src="assets/collage-3.jpg" alt="Spark installation among the trees" loading="lazy">
+        <img src="assets/collage-4.jpg" alt="Spark installation, vertical view" loading="lazy">
+      </div>
+    </figure>
+
+    <figure class="panel">
+      <div class="panel__frame">
+        <video autoplay muted loop playsinline poster="assets/panel-poster.jpg">
+          <source src="assets/panel.mp4" type="video/mp4">
+        </video>
+      </div>
+    </figure>
+
+    <figure class="panel panel--map" id="map">
+      <div class="panel__frame">
+        <iframe class="mapEmbed"
+                src="https://shellylyf.github.io/spark-map/"
+                title="Spark — live emotional weather map"
+                loading="lazy" allow="geolocation"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <!-- Click-to-activate: keeps the map's scroll-zoom from
+             hijacking the page scroll until the visitor opts in. -->
+        <button class="mapGate" type="button">
+          <span class="mapGate__label">Explore the live map</span>
+        </button>
+
+        <a class="mapEmbed__open" href="https://shellylyf.github.io/spark-map/"
+           target="_blank" rel="noopener">Open full map &#8599;</a>
+      </div>
+    </figure>
+
+  </section>
+
+  <!-- ══ WHY SPARK / CAROUSEL ══ -->
+  <section class="next">
+    <div class="wrap next__head">
+      <div>
+        <p class="eyebrow reveal">Why Spark?</p>
+        <h2 class="next__title reveal">Where Spark could go next</h2>
+      </div>
+      <a class="learn reveal" href="#">Learn more</a>
+    </div>
+
+    <div class="carousel">
+      <div class="carousel__track" id="track"><!-- cards injected by js/main.js --></div>
+      <div class="wrap carousel__nav">
+        <button class="arrow" data-dir="-1" aria-label="Previous">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="arrow" data-dir="1" aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  </div><!-- /.sheet -->
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <span class="logo__word">SPARK 2026</span>
+    <p>An emotional weather station for the places we share.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
